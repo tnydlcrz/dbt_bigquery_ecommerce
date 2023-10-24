@@ -1,0 +1,158 @@
+version: 2
+
+models:
+  - name: customers
+    config:
+      schema: trusted_data_enorb
+    columns:
+      - name: CUSTOMER_ID
+        description: Id del cliente
+        tests:
+          - unique
+          - not_null
+      - name: CUSTOMER_UNIQUE_ID
+        description: Id único del cliente
+        tests:
+          - unique
+          - not_null
+      - name: CUSTOMER_ZIP_CODE_PREFIX
+        description: Prefijo del codigo zip del cliente
+        tests:
+          - not_null
+      - name: CUSTOMER_CITY
+        description: Ciudad del cliente
+      - name: CUSTOMER_STATE
+        description: Estado del cliente
+
+  - name: geolocation
+    config:
+      schema: trusted_data_enorb
+    columns:
+      - name: GEOLOCATION_ZIP_CODE_PREFIX
+        description: Prefijo del código zip de geolocalización
+        tests:
+          - not_null
+      - name: GEOLOCATION_LAT
+        description: Coordenada de latitud de geolocalización
+        tests:
+          - not_null
+      - name: GEOLOCATION_LNG
+        description: Coordenada de longitud de geolocalización
+        tests:
+          - not_null
+      - name: GEOLOCATION_CITY
+        description: Ciudad de geolocalización
+        tests:
+          - not_null
+      - name: GEOLOCATION_STATE
+        description: Estado de geolocalización
+        tests:
+          - not_null        
+
+  - name: order_items
+    config:
+      schema: trusted_data_enorb
+    columns:
+      - name: ORDER_ID
+        description: Id de la orden
+        tests:
+          - not_null
+      - name: ORDER_ITEM_ID
+        description: Id del ítem de la orden
+        tests:
+          - not_null
+      - name: PRODUCT_ID
+        description: Id del producto
+        tests:
+          - not_null
+      - name: SELLER_ID
+        description: Id del vendedor
+        tests:
+          - not_null
+      - name: SHIPPING_LIMIT_DATE
+        description: Fecha límite de envío
+      - name: PRICE
+        description: Precio del producto
+        tests:
+          - not_null
+      - name: FREIGHT_VALUE
+        description: Valor del flete        
+
+  - name: order_payments
+    config:
+      schema: trusted_data_enorb
+    columns:
+      - name: ORDER_ID
+        description: Id de la orden
+        tests:
+          - not_null
+      - name: PAYMENT_SEQUENTIAL
+        description: Id secuencial del pago        
+      - name: PAYMENT_TYPE
+        description: Tipo de pago
+        tests:
+          - not_null
+      - name: PAYMENT_INSTALLMENTS
+        description: Cuotas de pago
+      - name: PAYMENT_VALUE
+        description: Valor de pago
+        tests:
+          - not_null
+
+  - name: order_reviews
+    config:
+      schema: trusted_data_enorb
+    columns:
+      - name: REVIEW_ID
+        description: Id de reseña
+        tests:
+          - unique
+          - not_null
+      - name: ORDER_ID
+        description: Id de la orden
+        tests:
+          - not_null
+      - name: REVIEW_SCORE
+        description: Puntuación de la reseña        
+      - name: REVIEW_COMMENT_TITLE
+        description: Título de la reseña        
+      - name: REVIEW_COMMENT_MESSAGE
+        description: Cuerpo de la reseña
+      - name: REVIEW_CREATION_DATE
+        description: Fecha de creación de la reseña
+        tests:
+          - not_null
+      - name: REVIEW_ANSWER_TIMESTAMP
+        description: Fecha de respuesta de la reseña
+        tests:
+          - not_null
+
+  - name: orders
+    config:
+      schema: trusted_data_enorb
+    columns:
+      - name: ORDER_ID
+        description: Id de la orden
+        tests:
+          - unique
+          - not_null
+      - name: CUSTOMER_ID
+        description: Id del cliente
+        tests:
+          - not_null
+      - name: ORDER_STATUS
+        description: Estado de la Orden
+        tests:
+          - not_null
+      - name: ORDER_PURCHASE_TIMESTAMP
+        description: Marca de tiempo de la orden
+        tests:
+          - not_null
+      - name: ORDER_APPROVED_AT
+        description: Fecha de aprobación de la orden        
+      - name: ORDER_DELIVERED_CARRIER_DATE
+        description: Fecha que se entregó el pedido al transportista
+      - name: ORDER_DELIVERED_CUSTOMER_DATE
+        description: Fecha que se entregó el pedido al cliente
+      - name: ORDER_ESTIMATED_DELIVERY_DATE
+        description: Fecha estimada de entrega del pedido      
