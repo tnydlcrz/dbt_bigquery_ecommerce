@@ -155,4 +155,59 @@ models:
       - name: ORDER_DELIVERED_CUSTOMER_DATE
         description: Fecha que se entregó el pedido al cliente
       - name: ORDER_ESTIMATED_DELIVERY_DATE
-        description: Fecha estimada de entrega del pedido      
+        description: Fecha estimada de entrega del pedido
+
+  - name: product_category_name_translation
+    config:
+      schema: trusted_data_enorb
+    columns:
+      - name: PRODUCT_CATEGORY_NAME
+        description: Nombre de la categoría del producto
+        tests:          
+          - not_null
+      - name: PRODUCT_CATEGORY_NAME_ENGLISH
+        description: Nombre de la categoría del producto en Ingles
+
+  - name: products
+    config:
+      schema: trusted_data_enorb
+    columns:
+      - name: PRODUCT_ID
+        description: Id del producto
+        tests:          
+          - not_null
+          - unique          
+      - name: PRODUCT_CATEGORY_NAME
+        description: Nombre de la categoría del producto
+      - name: PRODUCT_NAME_LENGHT
+        description: Nombre del producto
+        tests:
+          - not_null          
+      - name: PRODUCT_DESCRIPTION_LENGHT
+        description: Descripción del producto
+      - name: PRODUCT_PHOTOS_QTY
+        description: Fotos del producto  
+      - name: PRODUCT_WEIGHT_G
+        description: Peso del producto
+      - name: PRODUCT_LENGTH_CM
+        description: Longitud del producto
+      - name: PRODUCT_HEIGHT_CM
+        description: Altura del producto
+
+  - name: sellers
+    config:
+      schema: trusted_data_enorb
+    columns:
+      - name: SELLER_ID
+        description: Id del vendedor
+        tests:          
+          - not_null
+          - unique
+      - name: SELLER_ZIP_CODE_PREFIX
+        description: Prefijo del código zip del vendedor
+        tests:
+          - not_null          
+      - name: SELLER_CITY
+        description: Ciudad del vendedor
+      - name: SELLER_STATE
+        description: Estado del vendedor
