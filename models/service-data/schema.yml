@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: dim_time
+    description: Dimension de Tiempo
+    config:
+      schema: service_data_enorb
+    columns:
+      - name: TIME_ID
+        description: Id de la fecha
+        tests:
+          - unique
+          - not_null
+      - name: TIME_DATE
+        description: Fecha
+        tests:
+          - unique
+          - not_null
+      - name: TIME_YEAR
+        description: Año
+        tests:
+          - not_null
+      - name: TIME_QUARTER
+        description: Cuatrimestre (Q)
+        tests:
+          - not_null
+      - name: TIME_MONTH
+        description: Mes
+        tests:
+          - not_null    
