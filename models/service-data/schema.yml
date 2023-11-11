@@ -180,3 +180,35 @@ models:
         description: Estado de la orden
         tests:
           - not_null
+      - name: ORDER_PURCHASE_TIMESTAMP
+        description: Marca de tiempo de la orden de compra
+        tests:
+          - not_null          
+      - name: ORDER_DELIVERED_CUSTOMER_DATE
+        description: Fecha que se entregó el pedido al cliente                   
+      - name: ORDER_ESTIMATED_DELIVERY_DATE
+        description: Fecha estimada de entrega del pedido al cliente
+        tests:
+          - not_null
+      - name: ORDER_GROSS_VALUE
+        description: Monto bruto de la orden
+        tests:
+          - not_null
+      - name: ORDER_ITEM_ID
+        description: Id del item en la orden
+        tests:
+          - not_null
+      - name: PRODUCT_ID
+        description: Identificador del producto
+        tests:
+          - not_null
+      - name: SELLER_ID
+        description: Identificador del vendedor
+        tests:
+          - not_null
+      - name: PRICE
+        description: Precio del producto
+        tests:
+          - not_null
+      - name: FREIGHT_VALUE
+        description: Costo del flete
