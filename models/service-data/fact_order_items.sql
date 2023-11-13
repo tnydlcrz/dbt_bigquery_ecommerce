@@ -25,4 +25,10 @@ FROM {{ ref('orders') }} o
         ON o.ORDER_ID = oi.ORDER_ID
     LEFT JOIN order_gross_value ogv
         ON o.ORDER_ID = ogv.ORDER_ID
+    INNER JOIN {{ ref('dim_time') }} as dt
+        ON o.ORDER_PURCHASE_TIMESTAMP = dt.TIME_DATE
+    INNER JOIN {{ ref('dim_time') }} as dt2
+            ON o.ORDER_DELIVERED_CUSTOMER_DATE = dt2.TIME_DATE
+        INNER JOIN {{ ref('dim_time') }} as dt3
+        ON o.ORDER_ESTIMATED_DELIVERY_DATE = dt3.TIME_DATE           
 ORDER BY O.ORDER_ID
