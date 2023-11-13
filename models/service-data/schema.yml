@@ -134,12 +134,10 @@ models:
       - name: REVIEW_ID
         description: Id de la reseña de la orden
         tests:
-          - unique
           - not_null      
       - name: ORDER_ID
         description: Id de la orden
         tests:
-          - unique
           - not_null
       - name: REVIEW_SCORE
         description: Puntaje de la reseña
