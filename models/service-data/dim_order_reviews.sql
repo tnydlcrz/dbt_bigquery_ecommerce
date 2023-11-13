@@ -21,4 +21,8 @@ SELECT
 	msr.REVIEW_CREATION_DATE,
 	msr.REVIEW_ANSWER_TIMESTAMP    
 FROM min_score_reviews msr
+    INNER JOIN {{ ref('dim_time') }} as dt
+        ON msr.REVIEW_CREATION_DATE = dt.TIME_DATE
+    INNER JOIN {{ ref('dim_time') }} as dt2
+            ON msr.REVIEW_ANSWER_TIMESTAMP = dt2.TIME_DATE
 WHERE msr.SCORE_MIN = 1 --AND msr.REVIEW_SCORE < 3
