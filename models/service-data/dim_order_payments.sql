@@ -1,0 +1,20 @@
+{{ config(materialized="table") }}
+
+WITH max_payments AS (
+SELECT 
+    ORDER_ID,
+    PAYMENT_SEQUENTIAL,
+    PAYMENT_TYPE,
+    PAYMENT_INSTALLMENTS,
+    PAYMENT_VALUE,
+    RANK() OVER(PARTITION BY ORDER_ID ORDER BY PAYMENT_VALUE DESC, PAYMENT_TYPE ASC) PAYMENT_MAX
+FROM {{ ref('order_payments') }}
+)
+SELECT
+    mp.ORDER_ID,
+    mp.PAYMENT_SEQUENTIAL,
+    mp.PAYMENT_TYPE,
+    mp.PAYMENT_INSTALLMENTS,
+    mp.PAYMENT_VALUE
+FROM max_payments mp
+WHERE mp.PAYMENT_MAX = 1
