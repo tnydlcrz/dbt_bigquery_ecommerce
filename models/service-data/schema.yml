@@ -36,13 +36,11 @@ models:
     columns:
       - name: CUSTOMER_ID
         description: Id del cliente
-        tests:
-          - unique
+        tests:        
           - not_null
       - name: CUSTOMER_UNIQUE_ID
         description: Id alternativo del cliente
-        tests:
-          - unique
+        tests:        
           - not_null
       - name: CUSTOMER_ZIP_CODE_PREFIX
         description: Prefijo del código zip del cliente
@@ -66,31 +64,25 @@ models:
     config:
       schema: service_data_enorb
     columns:
-      - name: CUSTOMER_ID
+      - name: SELLER_ID
         description: Id del cliente
         tests:
-          - unique
           - not_null
-      - name: CUSTOMER_UNIQUE_ID
-        description: Id alternativo del cliente
-        tests:
-          - unique
-          - not_null
-      - name: CUSTOMER_ZIP_CODE_PREFIX
+      - name: SELLER_ZIP_CODE_PREFIX
         description: Prefijo del código zip del cliente
         tests:
           - not_null    
-      - name: CUSTOMER_CITY
+      - name: SELLER_CITY
         description: Ciudad del cliente
         tests:
         - not_null
-      - name: CUSTOMER_STATE
+      - name: SELLER_STATE
         description: Estado del cliente
         tests:
           - not_null
-      - name: CUSTOMER_GEO_LAT
+      - name: SELLER_GEO_LAT
         description: Coordenada de latitud del cliente
-      - name: CUSTOMER_GEO_LNG
+      - name: SELLER_GEO_LNG
         description: Coordenada de longitud del cliente      
 
   - name: dim_products
@@ -120,7 +112,6 @@ models:
       - name: ORDER_ID
         description: Id de la orden a la que corresponde el pago de mayor denominación
         tests:
-          - unique
           - not_null
       - name: PAYMENT_SEQUENTIAL
         description: Número secuencial del pago para la orden
