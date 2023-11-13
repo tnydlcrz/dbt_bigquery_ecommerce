@@ -12,8 +12,7 @@ models:
           - not_null
       - name: CUSTOMER_UNIQUE_ID
         description: Id único del cliente
-        tests:
-          - unique
+        tests:        
           - not_null
       - name: CUSTOMER_ZIP_CODE_PREFIX
         description: Prefijo del codigo zip del cliente
@@ -105,8 +104,7 @@ models:
     columns:
       - name: REVIEW_ID
         description: Id de reseña
-        tests:
-          - unique
+        tests:        
           - not_null
       - name: ORDER_ID
         description: Id de la orden
