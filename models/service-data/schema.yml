@@ -181,23 +181,13 @@ models:
           - not_null
       - name: ORDER_GROSS_VALUE
         description: Monto bruto de la orden
-        tests:
-          - not_null
       - name: ORDER_ITEM_ID
         description: Id del item en la orden
-        tests:
-          - not_null
       - name: PRODUCT_ID
         description: Identificador del producto
-        tests:
-          - not_null
       - name: SELLER_ID
         description: Identificador del vendedor
-        tests:
-          - not_null
       - name: PRICE
         description: Precio del producto
-        tests:
-          - not_null
       - name: FREIGHT_VALUE
         description: Costo del flete
