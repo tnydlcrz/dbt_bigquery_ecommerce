@@ -172,9 +172,13 @@ models:
       - name: ORDER_PURCHASE_TIMESTAMP
         description: Marca de tiempo de la orden de compra
         tests:
-          - not_null          
+          - not_null
+      - name: ORDER_APPROVED_AT
+        description: Fecha de aprobación de la orden
+      - name: ORDER_DELIVERED_CARRIER_DATE
+        description: Fecha de entrega del pedido al transportista                            
       - name: ORDER_DELIVERED_CUSTOMER_DATE
-        description: Fecha que se entregó el pedido al cliente                   
+        description: Fecha de entrega del pedido al cliente                           
       - name: ORDER_ESTIMATED_DELIVERY_DATE
         description: Fecha estimada de entrega del pedido al cliente
         tests:
