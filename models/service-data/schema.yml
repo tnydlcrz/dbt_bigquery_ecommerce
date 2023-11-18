@@ -195,3 +195,15 @@ models:
         description: Precio del producto
       - name: FREIGHT_VALUE
         description: Costo del flete
+      - name: APPROVED_TIME
+        description: Dias transcurridos entre la fecha de compra y fecha de aprobación de la orden     
+      - name: CARRIER_AVAILABLE_TIME
+        description: Dias transcurridos entre la aprobación de la orden y que se pasa el pedido al transporte
+      - name: CARRIER_DELIVERED_TIME
+        description: Dias transcurridos entre que se pasa el pedido al transporte y lo recibe el cliente
+      - name: ESTIMATED_DELIVERY_PRECISION
+        description: Diferencia en dias entre la fecha estimada y la fecha real de entrega del pedido al cliente (precisión)
+      - name: TOTAL_TIME
+        description: Total de dias transcurridos entre la fecha de la orden de compra y la fecha de entrega del pedido al cliente
+      - name: RECENCY
+        description: Total de dias transcurridos desde la ultima orden de compra del cliente
