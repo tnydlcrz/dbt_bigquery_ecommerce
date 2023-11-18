@@ -13,4 +13,4 @@ FROM {{ ref('sellers') }} s
           AND s.seller_state = g.GEOLOCATION_STATE
           AND s.seller_city = g.GEOLOCATION_CITY
 QUALIFY ROW_NUMBER() OVER (PARTITION BY s.SELLER_ID ORDER BY g.GEOLOCATION_LAT, g.GEOLOCATION_LNG DESC) = 1
---ORDER BY s.seller_state desc , s.seller_city desc
+ORDER BY s.seller_state , s.seller_city

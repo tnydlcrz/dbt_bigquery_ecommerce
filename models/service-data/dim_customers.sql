@@ -14,4 +14,5 @@ FROM {{ ref('customers') }} c
           ON c.customer_zip_code_prefix = g.geolocation_zip_code_prefix
           AND c.customer_state = g.GEOLOCATION_STATE
           AND c.customer_city = g.GEOLOCATION_CITY          
-QUALIFY ROW_NUMBER() OVER (PARTITION BY c.CUSTOMER_ID ORDER BY g.GEOLOCATION_LAT, g.GEOLOCATION_LNG DESC) = 1      
+QUALIFY ROW_NUMBER() OVER (PARTITION BY c.CUSTOMER_ID ORDER BY g.GEOLOCATION_LAT, g.GEOLOCATION_LNG DESC) = 1
+ORDER BY c.customer_state , c.customer_city
